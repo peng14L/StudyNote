@@ -1,2 +1,2 @@
-# MyC-StudyNote
-To record my C++ Study
+# StudyNote
+To record my C++ Study, and pytorch study.
