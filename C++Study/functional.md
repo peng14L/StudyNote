@@ -35,4 +35,3 @@ Math math;
 std::function<int(Math&, int, int)> f = &Math::multiply;
 std::cout << f(math, 4, 5);
 ```
-
