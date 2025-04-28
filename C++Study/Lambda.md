@@ -45,7 +45,7 @@ public:
         auto lambda = [this] { return value;  };
     }
 };
-
+```
 6. mutable 关键字
 默认情况下，值捕获的变量在Lambda内是const的，使用mutable可以修改
 ```c++
@@ -54,3 +54,4 @@ auto lambda = [a]() mutable {
     a += 1;
     return a;
 }
+```
