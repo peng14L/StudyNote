@@ -1,6 +1,21 @@
-#include <algorithm>
+// #include <algorithm>
 #include <iostream>
+#include <map>
 #include <vector>
+#include <Eigen/Dense>
+
+Eigen::Matrix4d eulerAngleToTransMatrix(const double& x, const double& y,
+    const double& z,
+    const double& roll,
+    const double& pitch,
+    const double& yaw) {
+Eigen::Translation3d translation(x, y, z);
+Eigen::AngleAxisd angleaxis_roll(roll, Eigen::Vector3d::UnitX());
+Eigen::AngleAxisd angleaxis_pitch(pitch, Eigen::Vector3d::UnitY());
+Eigen::AngleAxisd angleaxis_yaw(yaw, Eigen::Vector3d::UnitZ());
+return (translation * angleaxis_yaw * angleaxis_pitch * angleaxis_roll)
+.matrix();
+}
 
 int main() {
     // int src[] = {1, 2, 3, 4, 5};
@@ -17,25 +32,47 @@ int main() {
     //     std::cout << dest[i] << std::endl;
     // }
 
-    int a = 0;
+    // int a = 0;
 
-    // 指针常量, 指针是常量，即指针不能再指向其他变量, 创建时就要赋值；
-    int* const p = &a;
-    // *p = a;
-    std::cout << "p = " << p << std::endl;
-    std::cout << "*p = " << *p << std::endl;
+    // // 指针常量, 指针是常量，即指针不能再指向其他变量, 创建时就要赋值；
+    // int* const p = &a;
+    // // *p = a;
+    // std::cout << "p = " << p << std::endl;
+    // std::cout << "*p = " << *p << std::endl;
 
-    int b = 1;
-    *p = b;
-    std::cout << "*p = " << *p << std::endl;
+    // int b = 1;
+    // *p = b;
+    // std::cout << "*p = " << *p << std::endl;
 
 
     // 常量指针，指向常量的指针，指针可以再指向其他变量，但是不能通过指针修改变量值
-    const int* q;
-    int c = 4;
-    q = &c;
-    std::cout << "q = " << q << std::endl;
-    std::cout << "*q = " << *q << std::endl;
+    // const int* q;
+    // int c = 4;
+    // q = &c;
+    // std::cout << "q = " << q << std::endl;
+    // std::cout << "*q = " << *q << std::endl;
+
+    // std::map<double, int> map;
+    // std::vector<double> vec{1, 2, 3, 4, 5, 1};
+
+    // for (std::size_t i = 0; i < vec.size(); ++i) {
+    //     double x = vec[i];
+    //     while (map.find(x) != map.end()) {
+    //         x += 0.01;
+    //     }
+
+    //     (void)map.emplace(x, i);
+    // }
+
+    // for (const auto& pair : map) {
+    //     std::cout << pair.first << "-> " << pair.second << std::endl;
+    // }
+    double x = 0, y = 0, z = 1;
+    Eigen::AngleAxisd angleaxis_roll(M_PI / 3, Eigen::Vector3d::UnitX());
+    Eigen::Translation3d translation(x, y, z);
+    auto matrix = (angleaxis_roll * translation).matrix();
+
+    std::cout << "Matrix: " << matrix << std::endl;
 
     return 0;
 }
