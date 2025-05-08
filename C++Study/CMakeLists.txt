@@ -6,4 +6,4 @@ find_package(Eigen3 REQUIRED)
 
 add_executable(test test.cpp)
 
-target_link_libraries(test PRIVATE Eigen3::Eigen)
+target_link_libraries(test PRIVATE Eigen3::Eigen pthread)

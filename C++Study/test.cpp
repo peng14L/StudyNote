@@ -3,18 +3,38 @@
 #include <map>
 #include <vector>
 #include <Eigen/Dense>
+#include <thread>
+#include <mutex>
 
-Eigen::Matrix4d eulerAngleToTransMatrix(const double& x, const double& y,
-    const double& z,
-    const double& roll,
-    const double& pitch,
-    const double& yaw) {
-Eigen::Translation3d translation(x, y, z);
-Eigen::AngleAxisd angleaxis_roll(roll, Eigen::Vector3d::UnitX());
-Eigen::AngleAxisd angleaxis_pitch(pitch, Eigen::Vector3d::UnitY());
-Eigen::AngleAxisd angleaxis_yaw(yaw, Eigen::Vector3d::UnitZ());
-return (translation * angleaxis_yaw * angleaxis_pitch * angleaxis_roll)
-.matrix();
+// Eigen::Matrix4d eulerAngleToTransMatrix(const double& x, const double& y,
+//     const double& z,
+//     const double& roll,
+//     const double& pitch,
+//     const double& yaw) {
+// Eigen::Translation3d translation(x, y, z);
+// Eigen::AngleAxisd angleaxis_roll(roll, Eigen::Vector3d::UnitX());
+// Eigen::AngleAxisd angleaxis_pitch(pitch, Eigen::Vector3d::UnitY());
+// Eigen::AngleAxisd angleaxis_yaw(yaw, Eigen::Vector3d::UnitZ());
+// return (translation * angleaxis_yaw * angleaxis_pitch * angleaxis_roll)
+// .matrix();
+// }
+std::mutex mutex;
+int c = 0;
+void proc1(const int& i) {
+    // mutex.lock();
+    for (int s = 0; s < i; ++s) {
+        std::cout << "This is proc1 " << c++ << std::endl;
+    }
+    // mutex.unlock();
+}
+
+void proc2() {
+    // mutex.lock();
+    for (int i = 0; i < 5; ++i) {
+        c += 2;
+        std::cout << "This is proc2 " << c << std::endl;
+    }
+    // mutex.unlock();
 }
 
 int main() {
@@ -67,12 +87,18 @@ int main() {
     // for (const auto& pair : map) {
     //     std::cout << pair.first << "-> " << pair.second << std::endl;
     // }
-    double x = 0, y = 0, z = 1;
-    Eigen::AngleAxisd angleaxis_roll(M_PI / 3, Eigen::Vector3d::UnitX());
-    Eigen::Translation3d translation(x, y, z);
-    auto matrix = (angleaxis_roll * translation).matrix();
+    // double x = 0, y = 0, z = 1;
+    // Eigen::AngleAxisd angleaxis_roll(M_PI / 3, Eigen::Vector3d::UnitX());
+    // Eigen::Translation3d translation(x, y, z);
+    // auto matrix = (angleaxis_roll * translation).matrix();
 
-    std::cout << "Matrix: " << matrix << std::endl;
+    // std::cout << "Matrix: " << matrix << std::endl;
 
+    std::thread t1(proc1, 10);
+    std::thread t2(proc2);
+    t1.join();
+    t2.join();
+
+    std::cout << "outcome c = " << c << std::endl;
     return 0;
 }

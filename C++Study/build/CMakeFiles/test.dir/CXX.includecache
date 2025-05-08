@@ -15,6 +15,10 @@ vector
 -
 Eigen/Dense
 -
+thread
+-
+mutex
+-
 
 /usr/include/eigen3/Eigen/Cholesky
 Core
