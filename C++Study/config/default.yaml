@@ -1,0 +1,14 @@
+name: "aurora"
+age: [10, 20] 
+
+relationship:
+  family:
+    - father
+    - mother
+    - sister
+  friends:
+    - little s
+    - james
+    - cong
+  favouriate_number: 4
+

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sti/2025/myGitHub/StudyNote/C++Study/yamlRead.cpp
+yaml-cpp/yaml.h
+-
+string
+-
+iostream
+-
+

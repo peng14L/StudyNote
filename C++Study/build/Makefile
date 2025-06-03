@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named yamlRead
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
+yamlRead: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 yamlRead
+.PHONY : yamlRead
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+yamlRead/fast:
+	$(MAKE) -f CMakeFiles/yamlRead.dir/build.make CMakeFiles/yamlRead.dir/build
+.PHONY : yamlRead/fast
 
-test.o: test.cpp.o
+yamlRead.o: yamlRead.cpp.o
 
-.PHONY : test.o
+.PHONY : yamlRead.o
 
 # target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.o
-.PHONY : test.cpp.o
+yamlRead.cpp.o:
+	$(MAKE) -f CMakeFiles/yamlRead.dir/build.make CMakeFiles/yamlRead.dir/yamlRead.cpp.o
+.PHONY : yamlRead.cpp.o
 
-test.i: test.cpp.i
+yamlRead.i: yamlRead.cpp.i
 
-.PHONY : test.i
+.PHONY : yamlRead.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.i
-.PHONY : test.cpp.i
+yamlRead.cpp.i:
+	$(MAKE) -f CMakeFiles/yamlRead.dir/build.make CMakeFiles/yamlRead.dir/yamlRead.cpp.i
+.PHONY : yamlRead.cpp.i
 
-test.s: test.cpp.s
+yamlRead.s: yamlRead.cpp.s
 
-.PHONY : test.s
+.PHONY : yamlRead.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.s
-.PHONY : test.cpp.s
+yamlRead.cpp.s:
+	$(MAKE) -f CMakeFiles/yamlRead.dir/build.make CMakeFiles/yamlRead.dir/yamlRead.cpp.s
+.PHONY : yamlRead.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... yamlRead"
+	@echo "... yamlRead.o"
+	@echo "... yamlRead.i"
+	@echo "... yamlRead.s"
 .PHONY : help
 
 
