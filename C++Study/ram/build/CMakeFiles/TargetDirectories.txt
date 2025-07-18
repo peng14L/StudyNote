@@ -1,0 +1,3 @@
+/home/sti/2025/myGitHub/StudyNote/C++Study/ram/build/CMakeFiles/rebuild_cache.dir
+/home/sti/2025/myGitHub/StudyNote/C++Study/ram/build/CMakeFiles/edit_cache.dir
+/home/sti/2025/myGitHub/StudyNote/C++Study/ram/build/CMakeFiles/ram.dir
