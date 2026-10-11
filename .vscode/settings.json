@@ -61,5 +61,15 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "markdown.math.enabled": true,
+    "markdown-preview-enhanced.mathRenderingOption": "KaTeX",
+    "markdown-preview-enhanced.mathInlineDelimiters": [
+        ["$", "$"],
+        ["\\(", "\\)"]
+    ],
+    "markdown-preview-enhanced.mathBlockDelimiters": [
+        ["$$", "$$"],
+        ["\\[", "\\]"]
+    ]
 }
